@@ -1,7 +1,9 @@
 <h1>Unwrapping OmniDirectional Images</h1>
 
     Copyright 2010-2014 METU, Middle East Technical University, Informatics Institute
+    
     This file is part of "Unwrapping OmniDirectional Images" Library.
+    
     "Unwrapping OmniDirectional Images" is free software: 
     you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
