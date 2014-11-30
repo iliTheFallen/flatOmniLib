@@ -24,7 +24,7 @@
 
 <p>The transformation of Omni-directional (OD) images into perspective-view images is an intensive task which takes significant time especially when the image resolution is high. Recently, Graphics Processing Units (GPU) have been started to be used for process intensive tasks, including various image processing algorithms, and significant speed-ups against CPU counterparts have been reported. In this paper, we propose parallel implementation of un-warping OD images on GPU, implemented using Compute Unified Device Architecture (CUDA). The performance of the proposed parallel algorithm has been analysed on two different GPU devices against the performance of its sequential version executed on the CPU. Our test results indicate a speed-up of up to 32 times by the execution of the parallel algorithm on the GPU. The performance analysis also indicates that the memory copy operations take significant amount of time on the GPU implementation. Hence we further analysed these copy operations and suggested optimizations for them.</p>
 
-<p>Even though the uploaded word document had been written down in the year 2010; all parameters passed to the new API remained the same. Please check out that file for construction parameters.</p>
+<p>Even though the uploaded word document had been written in the year 2010; all parameters passed to the new API remained the same. Please check out that file for construction parameters of "OmniOperations" class.</p>
 
 <h2>System Requirements</h2>
 
@@ -55,7 +55,7 @@ There are two separate projects in the solution : <br/>
 </p>
 
 <p>
-Paths to "Unwrapping OmniDirectional Images" Library's header and library files are defined with respect to the project's root folder. However, for OpenCV repeat the steps given below for both projects :
+Paths to "Unwrapping OmniDirectional Images" Library's header and library files for test project were defined with respect to the solution's root folder. However, for OpenCV repeat the steps given below for both projects :
 <ul>
  <li>Select the Project.</li>
  <li>Click on Project->Properties->Configuration Properties->C/C++->General->Additional Include Directories.</li>
@@ -76,7 +76,7 @@ Paths to "Unwrapping OmniDirectional Images" Library's header and library files 
 
 <h2>Usage</h2>
 
-<p>Four different samples (varying in size) of the same omnidirectional image are uploaded for testing. Files are as follows (Image was taken by Ladybug Omnidirectional Camera System) : <br/>
+<p>Four different samples (varying in size) of the same omnidirectional image are uploaded for testing. Files are as follows (the original image was taken by Ladybug Omnidirectional Camera System) : <br/>
 <ul>
  <li>39,894222,32,815392_Original.jpg : Original Image 5184x3456</li>
  <li>39,894222,32,815392_Quartered.jpg : Original Image 2592x1728</li>
@@ -100,16 +100,16 @@ To run the application :
 <p>
 In the Main.cpp file, there you should see two parameters were passed to the method "unwrap".
 <ul>
-<li>If the first parameter is an empty string; then it is user's responsibility to save the file using the C pointer returned by this method.</li>
-<li>Second parameter is a boolean value. Since there might be some distortions due to unwrapping; you should tell the API whether it should run a smoothing filter on the resulting image or not (smoothing is run on the GPU as well).</li>
+<li>If the first parameter is an empty string; then it is user's responsibility to save the file using the C++ pointer returned by this method.</li>
+<li>Second parameter is a boolean value. Since there might be some visual distortions due to the unwrapping; you should tell the API whether it should run a smoothing filter on the resulting image or not (smoothing is run on the GPU as well).</li>
 </ul>
 </p>
 
 <h2>Notes</h2>
 <p>
 <ul>
- <li>Keep in mind that a Tesla card was used during the test phase for it eliminates the overhead brought by display drivers like WDDM. This is valid for Windows Platforms only in the case you run H-TLD on Windows Vista and beyond. There might be some temporal solutions proposed on NVIDIA's web site to breach WDDM like drivers.</li>
- <li>Note that, CUDA Texture Objects made running multiple instances of the new API in separate threads possible. Now users may create several instances of the "OmniOperations" class for which they may unwrap different images from different resources in separate threads (such as via OpenMP) concurrently.</li>
+ <li>Keep in mind that a Tesla card was used during the test phase for it eliminates the overhead brought by display drivers like WDDM. This is valid for Windows Platforms only in the case you run "Unwrapping OmniDirectional Images" Library on Windows Vista and beyond. There might be some temporal solutions proposed on NVIDIA's web site to breach WDDM like drivers.</li>
+ <li>Note that, CUDA Texture Objects made running multiple instances of the new API in separate thread contexts possible. Now users may create several instances of the "OmniOperations" class so that they are able to unwrap different images from different resources(cameras) in separate threads (via OpenMP, for example) concurrently.</li>
  <li>As of yet, only CV_8UC1 (gra level), CV_8UC3 (bgr), and CV_8UC4 (bgra) image types are supported by the API.</li>
 </ul>
 </p>
